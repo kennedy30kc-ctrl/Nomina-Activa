@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/xbdwpra.png" alt="Logo de Nómina Activa" class="logo" />
+<img src="https://i.imgur.com/xbdwpra.png" alt="NA FONDO 1" class="logo" />
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
