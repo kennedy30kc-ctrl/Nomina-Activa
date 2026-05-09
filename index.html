@@ -17,8 +17,8 @@
 }
 
 .qr-nequi {
-  width: 100%;
-  max-width: 240px;
+  width: 170px;
+  height: auto;
   border-radius: 18px;
   margin: 15px auto;
   display: block;
@@ -379,16 +379,19 @@ textarea {
 
 .payment-options {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
   margin-top: 25px;
+  align-items: start;
 }
 
 .payment-option {
   background: #f4f9f0;
   border-radius: 20px;
-  padding: 22px;
+  padding: 25px;
   font-weight: 800;
+  text-align: center;
+  min-height: 100%;
 }
 
 .disclaimer {
