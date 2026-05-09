@@ -4,7 +4,42 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nómina Activa - Soluciones de Crédito</title>
+.payment-option h3 {
+  font-size: 1.3rem;
+  margin-bottom: 14px;
+  color: #143614;
+}
 
+.payment-option p {
+  color: #5f725a;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.qr-nequi {
+  width: 100%;
+  max-width: 240px;
+  border-radius: 18px;
+  margin: 15px auto;
+  display: block;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.paypal-logo {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #003087;
+  background: white;
+  border-radius: 18px;
+  padding: 25px 10px;
+  margin: 15px 0;
+  box-shadow: inset 0 0 0 2px #dbe7ff;
+}
+
+.cash-icon {
+  font-size: 4.5rem;
+  margin: 18px 0;
+}
 <style>
 * {
   margin: 0;
@@ -677,10 +712,37 @@ footer {
     </p>
 
     <div class="payment-options">
-      <div class="payment-option">🏦 Transferencia</div>
-      <div class="payment-option">📲 Pago móvil</div>
-      <div class="payment-option">💬 Confirmar por WhatsApp</div>
-    </div>
+
+  <div class="payment-option">
+    <h3>📲 Nequi</h3>
+    <img src="nequi.png" alt="QR de pago Nequi Nómina Activa" class="qr-nequi">
+    <p>Escanea el código QR para realizar tu pago por Nequi.</p>
+    <p><strong>Cód: 935476381</strong></p>
+  </div>
+
+  <div class="payment-option">
+    <h3>💳 PayPal</h3>
+    <div class="paypal-logo">PayPal</div>
+    <p>Opción para pagos internacionales o digitales.</p>
+    <a href="https://www.paypal.com"
+       target="_blank"
+       class="btn btn-primary"
+       style="margin-top:15px;">
+       Pagar con PayPal
+    </a>
+  </div>
+
+  <div class="payment-option">
+    <h3>💵 Efectivo</h3>
+    <div class="cash-icon">💵</div>
+    <p>También puedes coordinar pagos en efectivo directamente con un asesor autorizado.</p>
+    <a href="https://wa.me/573182294763"
+       target="_blank"
+       class="btn btn-dark"
+       style="margin-top:15px;">
+       Confirmar pago
+    </a>
+  </div>
 
     <div class="disclaimer">
       Importante: antes de realizar cualquier pago, confirma siempre los datos oficiales con un asesor autorizado de Nómina Activa.
