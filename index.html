@@ -3,405 +3,720 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nómina Activa - Comunidad Financiera</title>
+<title>Nómina Activa - Soluciones de Crédito</title>
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9fafb;
-    color: #1b3e18;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f7f3;
+  color: #183d1a;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: linear-gradient(135deg, #143614, #245b22);
+  color: white;
+  padding: 22px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 95px;
+  height: auto;
+  background: white;
+  border-radius: 18px;
+  padding: 8px;
+}
+
+.logo-area h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.logo-area p {
+  color: #d7f5d0;
+  font-size: 0.95rem;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 30px;
+  font-weight: 800;
+  transition: 0.3s;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: #b8f36b;
+  color: #163915;
+}
+
+.btn-dark {
+  background: white;
+  color: #163915;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.hero {
+  padding: 70px 7%;
+  background: radial-gradient(circle at top left, #e8ffd8, #f4f7f3 55%);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h2 {
+  font-size: 3.1rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #143614;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #486344;
+  margin-bottom: 25px;
+}
+
+.hero-card {
+  background: white;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 18px 45px rgba(20,54,20,0.16);
+}
+
+.hero-card h3 {
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+.hero-card ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.hero-card li {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.hero-card li::before {
+  content: "✓ ";
+  color: #4cae35;
+  font-weight: 900;
+}
+
+.section {
+  padding: 60px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 2.3rem;
+  color: #143614;
+}
+
+.section-title p {
+  color: #60745d;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(20,54,20,0.09);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.7rem;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  color: #143614;
+}
+
+.card p {
+  color: #5f725a;
+}
+
+.process {
+  background: #143614;
+  color: white;
+}
+
+.process .section-title h2,
+.process .section-title p {
+  color: white;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.step {
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.step-number {
+  background: #b8f36b;
+  color: #143614;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.actions {
+  background: #eef7e8;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.big-button {
+  background: white;
+  border-radius: 24px;
+  padding: 28px 18px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(20,54,20,0.1);
+  border: 2px solid transparent;
+  cursor: pointer;
+  color: #143614;
+  transition: 0.3s;
+}
+
+.big-button:hover,
+.big-button.active {
+  border-color: #8ad04f;
+  transform: translateY(-4px);
+}
+
+.big-button-icon {
+  font-size: 3rem;
+}
+
+.big-button-text {
+  display: block;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+.form-panel {
+  background: white;
+  max-width: 760px;
+  margin: 35px auto 0;
+  padding: 35px;
+  border-radius: 26px;
+  box-shadow: 0 18px 45px rgba(20,54,20,0.14);
+  display: none;
+}
+
+.form-panel.active {
+  display: block;
+}
+
+.form-panel h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #143614;
+}
+
+.info-box {
+  background: #eef9e6;
+  border-left: 5px solid #8ad04f;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: #405c1e;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  font-weight: 800;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 14px;
+  border: 1.5px solid #b7d7b2;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 90px;
+}
+
+.submit-btn {
+  margin-top: 12px;
+  background: #143614;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.payment-box {
+  background: white;
+  border-radius: 28px;
+  padding: 35px;
+  box-shadow: 0 18px 45px rgba(20,54,20,0.12);
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.payment-option {
+  background: #f4f9f0;
+  border-radius: 20px;
+  padding: 22px;
+  font-weight: 800;
+}
+
+.disclaimer {
+  background: #fff8dc;
+  color: #5d4b00;
+  padding: 18px;
+  border-radius: 18px;
+  margin-top: 25px;
+  font-size: 0.95rem;
+}
+
+footer {
+  background: #102c10;
+  color: #d8f5d2;
+  text-align: center;
+  padding: 28px 7%;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  background: #25D366;
+  color: white;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 999;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
   }
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1rem 2rem 4rem 2rem;
-    flex-grow: 1;
+
+  .hero h2 {
+    font-size: 2.4rem;
   }
+
+  .cards,
+  .steps,
+  .button-grid,
+  .payment-options {
+    grid-template-columns: 1fr;
+  }
+
   header {
-    background-color: #1b3e18;
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    border-radius: 0 0 35px 35px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    flex-wrap: wrap;
     justify-content: center;
-  }
-  <img src="logo.png" alt="Nómina Activa"> {
-    max-height: 100px;
-    width: auto;
-    flex-shrink: 0;
-    user-select: none;
-  }
-  header h1 {
-    color: white;
-    font-weight: 900;
-    font-size: 3rem;
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: 2px 2px 7px rgba(0,0,0,0.35);
-    user-select: none;
-  }
-  header p.tagline {
-    flex-basis: 100%;
     text-align: center;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #adebad;
-    margin-top: 0.3rem;
   }
-  .button-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.8rem;
-    margin-top: 2rem;
-  }
-  .big-button {
-    background: white;
-    border-radius: 25px;
-    box-shadow: 0 12px 25px rgba(27, 62, 24, 0.15);
-    cursor: pointer;
-    width: 220px;
-    padding: 1.8rem 1rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    user-select: none;
-    display: flex;
+
+  .logo-area {
     flex-direction: column;
-    align-items: center;
-    gap: 0.7rem;
-    border: none;
-    color: inherit;
   }
-  .big-button:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(27, 62, 24, 0.3);
-  }
-  .big-button-icon {
-    font-size: 5rem;
-    color: #1b3e18;
-    pointer-events: none;
-  }
-  .big-button-text {
-    font-weight: 900;
-    color: #1b3e18;
-    font-size: 1.3rem;
-    pointer-events: none;
-  }
-  .form-panel {
-    background: white;
-    max-width: 700px;
-    margin: 2rem auto 0;
-    padding: 2rem 2.5rem 3rem;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(27,62,24,0.12);
-    display: none;
-    animation: fadeInUp 0.5s ease forwards;
-  }
-  .form-panel.active {
-    display: block;
-  }
-  .form-panel h2 {
-    text-align: center;
-    color: #1b3e18;
-    margin-bottom: 1rem;
-    font-weight: 900;
-    font-size: 2.2rem;
-  }
-  .info-box {
-    background: #f0f7e9;
-    border-left: 5px solid #9ccf62;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-    color: #405c1e;
-    border-radius: 8px;
-    font-size: 1rem;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  label {
-    font-weight: 700;
-    color: #235215;
-    margin-bottom: 0.3rem;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="file"],
-  textarea {
-    padding: 0.7rem 1rem;
-    border-radius: 10px;
-    border: 1.5px solid #a6cda7;
-    font-size: 1rem;
-    outline-color: #1b3e18;
-    resize: vertical;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-  }
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="tel"]:focus,
-  textarea:focus {
-    border-color: #95d44a;
-  }
-  textarea {
-    min-height: 80px;
-  }
-  input[type="file"] {
-    padding: 0.3rem 0.6rem;
-  }
-  button.submit-btn {
-    margin-top: 1.4rem;
-    background: #adebad;
-    color: #1b3e18;
-    padding: 1rem 20px;
-    border-radius: 30px;
-    font-weight: 900;
-    font-size: 1.2rem;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(172, 217, 106, 0.55);
-    transition: all 0.3s ease;
-  }
-  button.submit-btn:hover {
-    background: #c9f681;
-    box-shadow: 0 15px 30px rgba(172, 217, 106, 0.85);
-    transform: translateY(-3px);
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  footer {
-    background-color: #1b3e18;
-    color: #adebad;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    user-select: none;
-  }
-  .whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #25D366;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 8px 15px rgba(37, 211, 102, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1100;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-  .whatsapp-float:hover {
-    background-color: #1ebe57;
-  }
-  .whatsapp-icon {
-    fill: white;
-    width: 30px;
-    height: 30px;
-  }
-  @media (max-width: 800px) {
-    .button-grid { flex-direction: column; align-items: center; }
-    .big-button { width: 90%; max-width: 320px; }
-    .form-panel { margin: 2rem 1rem 3rem; padding: 1.5rem 1.8rem 2.5rem; max-width: 100%; }
-    header h1 { font-size: 2.4rem; }
-  }
+}
 </style>
 </head>
+
 <body>
 
-<header role="banner">
-  <img src="https://i.imgur.com/xvZozPo.png" alt="Logo de Nómina Activa" class="logo" />
-  <h1>Nómina Activa</h1>
-  <p class="tagline">Una comunidad sólida de préstamos responsables y crecientes</p>
+<header>
+  <div class="logo-area">
+    <img src="logo.png" alt="Logo Nómina Activa" class="logo">
+    <div>
+      <h1>Nómina Activa</h1>
+      <p>Créditos responsables para crecer paso a paso</p>
+    </div>
+  </div>
+
+  <div class="header-buttons">
+    <a href="#solicitudes" class="btn btn-primary">Solicitar crédito</a>
+    <a href="https://wa.me/573182294763" target="_blank" class="btn btn-dark">WhatsApp</a>
+  </div>
 </header>
 
-<div class="container" role="main">
+<section class="hero">
+  <div>
+    <h2>Una solución financiera cercana, rápida y responsable.</h2>
+    <p>
+      En Nómina Activa apoyamos a trabajadores, emprendedores y comerciantes con pequeños créditos,
+      seguimiento personalizado y crecimiento progresivo según tu buen historial de pago.
+    </p>
+    <a href="#solicitudes" class="btn btn-primary">Iniciar solicitud</a>
+  </div>
 
-  <div class="button-grid" aria-label="Opciones principales">
-    <button class="big-button active" data-form="prestamos" aria-pressed="true" type="button">
-      <div class="big-button-icon" aria-hidden="true">💰</div>
+  <div class="hero-card">
+    <h3>¿Qué puedes hacer aquí?</h3>
+    <ul>
+      <li>Solicitar un préstamo o avance de crédito</li>
+      <li>Consultar el estado de tu crédito</li>
+      <li>Solicitar cronograma de pago</li>
+      <li>Pedir recibos o paz y salvo</li>
+      <li>Contactar por WhatsApp</li>
+    </ul>
+    <a href="https://wa.me/573182294763" target="_blank" class="btn btn-primary">Hablar con un asesor</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Servicios principales</h2>
+    <p>Gestión clara, atención cercana y procesos organizados.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <h3>Microcréditos</h3>
+      <p>Préstamos pequeños para necesidades personales, trabajo, herramientas o capital de movimiento.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>Crecimiento progresivo</h3>
+      <p>Tu buen comportamiento de pago puede ayudarte a acceder a mejores montos en el futuro.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🧾</div>
+      <h3>Soporte documental</h3>
+      <p>Solicita recibos, cronogramas, certificaciones y paz y salvo cuando finalices tu obligación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section process">
+  <div class="section-title">
+    <h2>¿Cómo funciona?</h2>
+    <p>Un proceso simple y ordenado.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3>Solicitas</h3>
+      <p>Envías tus datos básicos desde el formulario.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3>Revisamos</h3>
+      <p>Validamos tu información y capacidad de pago.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3>Aprobamos</h3>
+      <p>Te informamos monto, plazo y condiciones.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3>Acompañamos</h3>
+      <p>Recibes seguimiento, cronograma y soporte.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section actions" id="solicitudes">
+  <div class="section-title">
+    <h2>Centro de solicitudes</h2>
+    <p>Selecciona la opción que necesitas.</p>
+  </div>
+
+  <div class="button-grid">
+    <button class="big-button active" data-form="prestamos" type="button">
+      <div class="big-button-icon">💰</div>
       <span class="big-button-text">Solicitar Préstamo</span>
     </button>
-    <button class="big-button" data-form="estado" aria-pressed="false" type="button">
-      <div class="big-button-icon" aria-hidden="true">📊</div>
+
+    <button class="big-button" data-form="estado" type="button">
+      <div class="big-button-icon">📊</div>
       <span class="big-button-text">Estado del Crédito</span>
     </button>
-    <button class="big-button" data-form="cronogramas" aria-pressed="false" type="button">
-      <div class="big-button-icon" aria-hidden="true">📅</div>
+
+    <button class="big-button" data-form="cronogramas" type="button">
+      <div class="big-button-icon">📅</div>
       <span class="big-button-text">Cronograma de Pago</span>
     </button>
-    <button class="big-button" data-form="recibos" aria-pressed="false" type="button">
-      <div class="big-button-icon" aria-hidden="true">🧾</div>
+
+    <button class="big-button" data-form="recibos" type="button">
+      <div class="big-button-icon">🧾</div>
       <span class="big-button-text">Solicitar Recibos</span>
     </button>
-    <button class="big-button" data-form="pazySalvo" aria-pressed="false" type="button">
-      <div class="big-button-icon" aria-hidden="true">✅</div>
-      <span class="big-button-text">Solicitar Paz y Salvo</span>
+
+    <button class="big-button" data-form="pazySalvo" type="button">
+      <div class="big-button-icon">✅</div>
+      <span class="big-button-text">Paz y Salvo</span>
     </button>
-    <button class="big-button" data-form="contacto" aria-pressed="false" type="button">
-      <div class="big-button-icon" aria-hidden="true">📞</div>
-      <span class="big-button-text">Contacto / WhatsApp</span>
+
+    <button class="big-button" data-form="contacto" type="button">
+      <div class="big-button-icon">📞</div>
+      <span class="big-button-text">Contacto</span>
     </button>
   </div>
 
-  <section id="form-prestamos" class="form-panel active" tabindex="-1" aria-live="polite">
-    <h2>Solicitar Préstamo y Avance de Crédito</h2>
+  <section id="form-prestamos" class="form-panel active">
+    <h2>Solicitar Préstamo</h2>
     <div class="info-box">
-      Comienza con pequeños préstamos; tu buen historial te permitirá avanzar hasta créditos mayores para motos y herramientas.
+      Completa tus datos. Un asesor revisará tu solicitud y te contactará.
     </div>
+
     <form method="POST" action="https://formspree.io/f/xbdwprae" enctype="multipart/form-data">
-      <label for="nombre-prestamos">Nombre Completo *</label>
-      <input type="text" id="nombre-prestamos" name="NombreCompleto" required placeholder="Tu nombre completo" />
+      <label>Nombre completo *</label>
+      <input type="text" name="NombreCompleto" required>
 
-      <label for="profesion-prestamos">Profesión / Oficio *</label>
-      <input type="text" id="profesion-prestamos" name="Profesion" required placeholder="Tu profesión o actividad" />
+      <label>Profesión / Oficio *</label>
+      <input type="text" name="Profesion" required>
 
-      <label for="empresa-prestamos">Empresa donde Trabajas</label>
-      <input type="text" id="empresa-prestamos" name="Empresa" placeholder="Empresa o negocio" />
+      <label>Empresa o negocio</label>
+      <input type="text" name="Empresa">
 
-      <label for="direccion-prestamos">Dirección *</label>
-      <input type="text" id="direccion-prestamos" name="Direccion" required placeholder="Tu dirección" />
+      <label>Dirección *</label>
+      <input type="text" name="Direccion" required>
 
-      <label for="correo-prestamos">Correo Electrónico *</label>
-      <input type="email" id="correo-prestamos" name="_replyto" required placeholder="ejemplo@correo.com" />
+      <label>Correo electrónico *</label>
+      <input type="email" name="_replyto" required>
 
-      <label for="telefono-prestamos">Teléfono / WhatsApp *</label>
-      <input type="tel" id="telefono-prestamos" name="Telefono" required placeholder="+573182294763" />
+      <label>Teléfono / WhatsApp *</label>
+      <input type="tel" name="Telefono" required>
 
-      <label for="documentos-prestamos">Adjuntar documento de identificación (cédula, INE, etc.)</label>
-      <input type="file" id="documentos-prestamos" name="Documentos" accept="image/*,.pdf,.doc,.docx" multiple />
+      <label>Monto que deseas solicitar</label>
+      <input type="text" name="MontoSolicitado" placeholder="Ejemplo: 100 USD">
 
-      <label for="mensaje-prestamos">¿Qué necesitas financiar o solicitar? *</label>
-      <textarea id="mensaje-prestamos" name="Mensaje" rows="4" placeholder="Cuéntanos más" required></textarea>
+      <label>Adjuntar documento</label>
+      <input type="file" name="Documentos" accept="image/*,.pdf,.doc,.docx" multiple>
 
-      <button class="submit-btn" type="submit">Enviar Solicitud</button>
+      <label>¿Para qué necesitas el crédito? *</label>
+      <textarea name="Mensaje" required></textarea>
+
+      <button class="submit-btn" type="submit">Enviar solicitud</button>
     </form>
   </section>
 
-  <section id="form-estado" class="form-panel" tabindex="-1" aria-live="polite">
+  <section id="form-estado" class="form-panel">
     <h2>Consultar Estado del Crédito</h2>
     <form method="POST" action="https://formspree.io/f/xbdwprae">
-      <label for="nombre-estado">Nombre Completo *</label>
-      <input type="text" id="nombre-estado" name="NombreCompleto" required placeholder="Tu nombre completo" />
+      <label>Nombre completo *</label>
+      <input type="text" name="NombreCompleto" required>
 
-      <label for="correo-estado">Correo Electrónico *</label>
-      <input type="email" id="correo-estado" name="_replyto" required placeholder="ejemplo@correo.com" />
+      <label>Correo electrónico *</label>
+      <input type="email" name="_replyto" required>
 
-      <label for="telefono-estado">Teléfono / WhatsApp *</label>
-      <input type="tel" id="telefono-estado" name="Telefono" required placeholder="+573182294763" />
+      <label>Teléfono / WhatsApp *</label>
+      <input type="tel" name="Telefono" required>
 
-      <button class="submit-btn" type="submit">Consultar Estado</button>
+      <button class="submit-btn" type="submit">Consultar estado</button>
     </form>
   </section>
 
-  <section id="form-cronogramas" class="form-panel" tabindex="-1" aria-live="polite">
+  <section id="form-cronogramas" class="form-panel">
     <h2>Solicitar Cronograma de Pago</h2>
     <form method="POST" action="https://formspree.io/f/xbdwprae">
-      <label for="nombre-cronogramas">Nombre Completo *</label>
-      <input type="text" id="nombre-cronogramas" name="NombreCompleto" required placeholder="Tu nombre completo" />
+      <label>Nombre completo *</label>
+      <input type="text" name="NombreCompleto" required>
 
-      <label for="correo-cronogramas">Correo Electrónico *</label>
-      <input type="email" id="correo-cronogramas" name="_replyto" required placeholder="ejemplo@correo.com" />
+      <label>Correo electrónico *</label>
+      <input type="email" name="_replyto" required>
 
-      <label for="telefono-cronogramas">Teléfono / WhatsApp *</label>
-      <input type="tel" id="telefono-cronogramas" name="Telefono" required placeholder="+573182294763" />
+      <label>Teléfono / WhatsApp *</label>
+      <input type="tel" name="Telefono" required>
 
-      <button class="submit-btn" type="submit">Solicitar Cronograma</button>
+      <button class="submit-btn" type="submit">Solicitar cronograma</button>
     </form>
   </section>
 
-  <section id="form-recibos" class="form-panel" tabindex="-1" aria-live="polite">
-    <h2>Solicitar Recibos de Pago</h2>
+  <section id="form-recibos" class="form-panel">
+    <h2>Solicitar Recibos</h2>
     <form method="POST" action="https://formspree.io/f/xbdwprae">
-      <label for="nombre-recibos">Nombre Completo *</label>
-      <input type="text" id="nombre-recibos" name="NombreCompleto" required placeholder="Tu nombre completo" />
+      <label>Nombre completo *</label>
+      <input type="text" name="NombreCompleto" required>
 
-      <label for="correo-recibos">Correo Electrónico *</label>
-      <input type="email" id="correo-recibos" name="_replyto" required placeholder="ejemplo@correo.com" />
+      <label>Correo electrónico *</label>
+      <input type="email" name="_replyto" required>
 
-      <label for="telefono-recibos">Teléfono / WhatsApp *</label>
-      <input type="tel" id="telefono-recibos" name="Telefono" required placeholder="+573182294763" />
+      <label>Teléfono / WhatsApp *</label>
+      <input type="tel" name="Telefono" required>
 
-      <button class="submit-btn" type="submit">Solicitar Recibos</button>
+      <button class="submit-btn" type="submit">Solicitar recibos</button>
     </form>
   </section>
 
-  <section id="form-pazySalvo" class="form-panel" tabindex="-1" aria-live="polite">
+  <section id="form-pazySalvo" class="form-panel">
     <h2>Solicitar Paz y Salvo</h2>
-    <p style="margin-bottom:1.5rem; color:#4a6b2a;">Tu solicitud será enviada a nuestro WhatsApp o correo y te contactaremos pronto.</p>
+    <div class="info-box">
+      Esta solicitud aplica cuando el crédito esté totalmente cancelado.
+    </div>
+
     <form method="POST" action="https://formspree.io/f/xbdwprae">
-      <label for="nombre-pazys">Nombre Completo *</label>
-      <input type="text" id="nombre-pazys" name="NombreCompleto" required placeholder="Tu nombre completo" />
+      <label>Nombre completo *</label>
+      <input type="text" name="NombreCompleto" required>
 
-      <label for="correo-pazys">Correo Electrónico *</label>
-      <input type="email" id="correo-pazys" name="_replyto" required placeholder="ejemplo@correo.com" />
+      <label>Correo electrónico *</label>
+      <input type="email" name="_replyto" required>
 
-      <label for="telefono-pazys">Teléfono / WhatsApp *</label>
-      <input type="tel" id="telefono-pazys" name="Telefono" required placeholder="+573182294763" />
+      <label>Teléfono / WhatsApp *</label>
+      <input type="tel" name="Telefono" required>
 
-      <button class="submit-btn" type="submit">Enviar Solicitud</button>
+      <button class="submit-btn" type="submit">Solicitar paz y salvo</button>
     </form>
   </section>
 
-  <section id="form-contacto" class="form-panel" tabindex="-1" aria-live="polite">
-    <h2>Contacto - WhatsApp y Correo</h2>
-    <p style="margin-bottom:1.5rem; color:#4a6b2a;">Puedes contactarnos directamente por WhatsApp o correo electrónico.</p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/573182294763" target="_blank" rel="noopener noreferrer" style="color:#25D366; font-weight:700;">+57 318 229 4763</a></p>
-    <p><strong>Correo:</strong> <a href="mailto:nomina.activa.col@gmail.com" style="color:#1b3e18; font-weight:700;">nomina.activa.col@gmail.com</a></p>
+  <section id="form-contacto" class="form-panel">
+    <h2>Contacto</h2>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/573182294763" target="_blank">+57 318 229 4763</a></p>
+    <p><strong>Correo:</strong> <a href="mailto:nomina.activa.col@gmail.com">nomina.activa.col@gmail.com</a></p>
   </section>
+</section>
 
-</div>
+<section class="section">
+  <div class="payment-box">
+    <h2>Zona de pagos</h2>
+    <p>
+      Próximamente podrás realizar o reportar tus pagos desde esta sección.
+      Por ahora, confirma tus pagos directamente con nuestro equipo de atención.
+    </p>
 
-<a href="https://wa.me/573182294763" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chatear por WhatsApp con Nómina Activa">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="whatsapp-icon" aria-hidden="true"><path d="M20.52 3.48a11.93 11.93 0 00-16.9 0 11.92 11.92 0 00-3.06 10.58l-1.47 5.07 5.23-1.38a11.9 11.9 0 0010.2 3.06 11.95 11.95 0 007.28-4.21 11.92 11.92 0 00-1.3-16.12zm-8.37 17.6a9.14 9.14 0 01-4.66-1.43l-.33-.21-3.09.81.83-3.01-.22-.33a9.13 9.13 0 114.47 3.17zM16.36 14c-.27-.13-1.6-.78-1.85-.87-.25-.09-.43-.13-.62.13s-.71.87-.87 1.05c-.16.18-.32.2-.6.07a7.84 7.84 0 01-2.31-1.4 8.89 8.89 0 011.68-2.32c.16-.17 0-.33-.03-.46-.04-.12-.62-1.51-.85-2.06-.22-.54-.45-.46-.62-.47-.16 0-.35 0-.54 0s-.5.07-.76.36a3.17 3.17 0 00-1 1.2 4.27 4.27 0 00.28 2.67 9.02 9.02 0 005.27 5.34c.75.32 1.34.26 1.85.16a4.47 4.47 0 001.37-.78 3.39 3.39 0 001.22-1.42c.12-.22.12-.41.08-.56-.04-.1-.26-.15-.53-.27z"/></svg>
-</a>
+    <div class="payment-options">
+      <div class="payment-option">🏦 Transferencia</div>
+      <div class="payment-option">📲 Pago móvil</div>
+      <div class="payment-option">💬 Confirmar por WhatsApp</div>
+    </div>
 
-<footer role="contentinfo">
-  &copy; 2024 Nómina Activa - Comunidad Financiera. Todos los derechos reservados.
+    <div class="disclaimer">
+      Importante: antes de realizar cualquier pago, confirma siempre los datos oficiales con un asesor autorizado de Nómina Activa.
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/573182294763" target="_blank" class="whatsapp-float">💬</a>
+
+<footer>
+  <p><strong>Nómina Activa</strong></p>
+  <p>Comunidad financiera de préstamos responsables y crecimiento progresivo.</p>
+  <p>© 2026 Nómina Activa. Todos los derechos reservados.</p>
 </footer>
 
 <script>
-  const buttons = document.querySelectorAll('.big-button');
-  const forms = document.querySelectorAll('.form-panel');
+const buttons = document.querySelectorAll(".big-button");
+const forms = document.querySelectorAll(".form-panel");
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-pressed', 'false');
-      });
-      button.classList.add('active');
-      button.setAttribute('aria-pressed', 'true');
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
 
-      const formToShow = button.getAttribute('data-form');
-      forms.forEach(form => {
-        if(form.id === 'form-' + formToShow) {
-          form.classList.add('active');
-          form.focus();
-        } else {
-          form.classList.remove('active');
-        }
-      });
-      const visibleForm = document.querySelector('.form-panel.active');
-      if(visibleForm) visibleForm.scrollIntoView({behavior: 'smooth', block: 'start'});
+    const formToShow = button.getAttribute("data-form");
+
+    forms.forEach(form => {
+      if (form.id === "form-" + formToShow) {
+        form.classList.add("active");
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        form.classList.remove("active");
+      }
     });
   });
+});
 </script>
 
 </body>
