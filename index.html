@@ -622,7 +622,11 @@ footer {
       <input type="text" name="MontoSolicitado" placeholder="Ejemplo: 100 USD">
 
       <label>Adjuntar documento</label>
-      <input type="file" name="Documentos" accept="image/*,.pdf,.doc,.docx" multiple>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiRYmAUWqVeEc3oFAqzjj82Vh3Guqf0QLuSZ6naMqi_N9cOw/viewform?usp=header" 
+   target="_blank" 
+   class="btn-documentos">
+   📎 Adjuntar documentos
+</a>
 
       <label>¿Para qué necesitas el crédito? *</label>
       <textarea name="Mensaje" required></textarea>
@@ -778,7 +782,21 @@ footer {
     <div style="background:#fff4cf; color:#4d4300; border-radius:18px; padding:18px; margin-top:30px; font-size:0.95rem;">
       🛡️ <strong>Importante:</strong> antes de realizar cualquier pago, confirma siempre los datos oficiales con un asesor autorizado de Nómina Activa.
     </div>
+.btn-documentos{
+  display:inline-block;
+  background:#1f7a3d;
+  color:white;
+  padding:12px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:10px;
+  transition:0.3s;
+}
 
+.btn-documentos:hover{
+  background:#14552a;
+}
   </div>
 </section>
 <a href="https://wa.me/573182294763" target="_blank" class="whatsapp-float">💬</a>
